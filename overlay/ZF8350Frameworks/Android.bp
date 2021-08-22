@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "ZenFone8SystemUI",
+    name: "ZF8350Frameworks",
     vendor: true,
 }

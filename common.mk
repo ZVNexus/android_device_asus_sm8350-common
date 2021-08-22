@@ -5,7 +5,7 @@
 #
 
 # Inherit from our proprietary files directory.
-$(call inherit-product, vendor/asus/sake/sake-vendor.mk)
+$(call inherit-product, vendor/asus/sm8350-common/sm8350-common-vendor.mk)
 
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
@@ -70,7 +70,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.sake
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.asus_sm8350
 
 # Bluetooth
 include vendor/qcom/opensource/commonsys-intf/bluetooth/bt-commonsys-intf-board.mk
@@ -269,8 +269,8 @@ PRODUCT_PACKAGES += \
     TelephonyResCommon \
     WifiResCommon \
     WifiResTarget \
-    ZenFone8Frameworks \
-    ZenFone8SystemUI
+    ZF8350Frameworks \
+    ZF8350SystemUI
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -355,7 +355,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.sake
+    vendor.lineage.touch@1.0-service.asus_sm8350
 
 # USB
 $(call inherit-product, vendor/qcom/opensource/usb/vendor_product.mk)
@@ -385,7 +385,7 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.sake
+    vendor.qti.hardware.vibrator.service.asus_sm8350
 
 # WFD
 PRODUCT_BOOT_JARS += \

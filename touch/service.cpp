@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define LOG_TAG "vendor.lineage.touch@1.0-service.sake"
+#define LOG_TAG "vendor.lineage.touch@1.0-service.asus_sm8350"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>

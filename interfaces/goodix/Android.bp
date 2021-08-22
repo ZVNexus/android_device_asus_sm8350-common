@@ -1,4 +1,4 @@
 hidl_package_root {
     name: "vendor.goodix.hardware.biometrics.fingerprint",
-    path: "device/asus/sake/interfaces/goodix/biometrics/fingerprint",
+    path: "device/asus/sm8350-common/interfaces/goodix/biometrics/fingerprint",
 }

@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=sake
+DEVICE=sm8350-common
 VENDOR=asus
 
 # Load extract utilities and do some sanity checks.

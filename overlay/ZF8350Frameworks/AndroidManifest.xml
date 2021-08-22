@@ -4,7 +4,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="android.zenfone8">
+    package="android.zf8350">
 
     <overlay
         android:isStatic="true"

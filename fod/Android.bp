@@ -6,9 +6,9 @@
 cc_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.sake",
-    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.sake.xml"],
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.sake.rc"],
+    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.asus_sm8350",
+    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.asus_sm8350.xml"],
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.asus_sm8350.rc"],
     srcs: ["service.cpp", "FingerprintInscreen.cpp"],
     shared_libs: [
         "libbase",

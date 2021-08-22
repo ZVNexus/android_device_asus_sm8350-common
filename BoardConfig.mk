@@ -6,7 +6,7 @@
 
 BUILD_BROKEN_DUP_RULES := true
 
-DEVICE_PATH := device/asus/sake
+COMMON_PATH := device/asus/sm8350-common
 
 include build/make/target/board/BoardConfigMainlineCommon.mk
 
@@ -70,26 +70,24 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 # Display
 include hardware/qcom-caf/sm8350/display/config/display-board.mk
 
-TARGET_SCREEN_DENSITY := 440
-
 # FSConfig
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(DEVICE_PATH)/asus_framework_matrix.xml \
-    $(DEVICE_PATH)/device_framework_matrix.xml \
+    $(COMMON_PATH)/asus_framework_matrix.xml \
+    $(COMMON_PATH)/device_framework_matrix.xml \
     vendor/lineage/config/device_framework_matrix.xml
 
 DEVICE_MANIFEST_FILE := \
-    $(DEVICE_PATH)/asus_manifest.xml \
-    $(DEVICE_PATH)/manifest.xml
+    $(COMMON_PATH)/asus_manifest.xml \
+    $(COMMON_PATH)/manifest.xml
 
 DEVICE_MATRIX_FILE := \
-    $(DEVICE_PATH)/compatibility_matrix.xml
+    $(COMMON_PATH)/compatibility_matrix.xml
 
 ODM_MANIFEST_SKUS := eSE
-ODM_MANIFEST_ESE_FILES := $(DEVICE_PATH)/eSE_manifest.xml
+ODM_MANIFEST_ESE_FILES := $(COMMON_PATH)/eSE_manifest.xml
 
 # Kernel
 BOARD_KERNEL_CMDLINE := \
@@ -112,12 +110,10 @@ BOARD_KERNEL_CMDLINE := \
 BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     adsp_loader_dlkm.ko \
     apr_dlkm.ko \
-    aw8697.ko \
     bolero_cdc_dlkm.ko \
     bt_fm_slim.ko \
     btpower.ko \
     camera.ko \
-    cs35l45_i2c_dlkm.ko \
     e4000.ko \
     fc0011.ko \
     fc0012.ko \
@@ -165,7 +161,6 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     sla.ko \
     slimbus-ngd.ko \
     slimbus.ko \
-    snd-soc-es928x.ko \
     snd_event_dlkm.ko \
     stub_dlkm.ko \
     swr_ctrl_dlkm.ko \
@@ -208,7 +203,7 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
     LLVM=1
 
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CONFIG := vendor/sake_defconfig
+TARGET_KERNEL_CONFIG := vendor/$(PRODUCT_DEVICE)_defconfig
 TARGET_KERNEL_SOURCE := kernel/asus/sm8350
 
 # Partitions
@@ -233,6 +228,11 @@ TARGET_COPY_OUT_ODM := odm
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := lahaina
 
+# Properties
+TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
+TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
+TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
+
 # Power
 TARGET_TAP_TO_WAKE_NODE := /proc/driver/dclick
 
@@ -244,7 +244,7 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_USES_RECOVERY_AS_BOOT := true
 BOOT_KERNEL_MODULES := focaltech_fts_zf.ko
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.default
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/init/fstab.default
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_UI_MARGIN_HEIGHT := 100
 TARGET_USERIMAGES_USE_F2FS := true
@@ -252,8 +252,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-PRODUCT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 
 # WLAN
 BOARD_HAS_QCOM_WLAN := true

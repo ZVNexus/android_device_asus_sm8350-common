@@ -2,7 +2,7 @@ Common_CFlags = ["-Wall"]
 Common_CFlags += ["-Werror"]
 
 cc_library_shared {
-    name: "vendor.qti.hardware.vibrator.impl.sake",
+    name: "vendor.qti.hardware.vibrator.impl.asus_sm8350",
     vendor: true,
     cflags: Common_CFlags,
     srcs: [
@@ -21,12 +21,12 @@ cc_library_shared {
 }
 
 cc_binary {
-    name: "vendor.qti.hardware.vibrator.service.sake",
+    name: "vendor.qti.hardware.vibrator.service.asus_sm8350",
     vendor: true,
     relative_install_path: "hw",
-    init_rc: ["vendor.qti.hardware.vibrator.service.sake.rc"],
+    init_rc: ["vendor.qti.hardware.vibrator.service.asus_sm8350.rc"],
     vintf_fragments: [
-        "vendor.qti.hardware.vibrator.service.sake.xml",
+        "vendor.qti.hardware.vibrator.service.asus_sm8350.xml",
     ],
     cflags: Common_CFlags,
     srcs: [
@@ -38,7 +38,7 @@ cc_binary {
         "libbase",
         "libbinder_ndk",
         "android.hardware.vibrator-ndk_platform",
-        "vendor.qti.hardware.vibrator.impl.sake",
+        "vendor.qti.hardware.vibrator.impl.asus_sm8350",
     ],
     overrides: ["vendor.qti.hardware.vibrator.service"],
 }
